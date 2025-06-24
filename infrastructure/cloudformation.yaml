@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  ChatbotLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: GenAIChatbot
+      Runtime: python3.11
+      Handler: handler.lambda_handler
+      Role: arn:aws:iam::YOUR_ACCOUNT_ID:role/lambda-execution-role
+      Code:
+        S3Bucket: your-bucket-name
+        S3Key: chatbot.zip
+      Environment:
+        Variables:
+          OPENAI_API_KEY: your-openai-key
